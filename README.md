@@ -1,2 +1,3 @@
 # PGUSE
-This is the official implementation of PGUSE, and the code will be released soon.
+This is the official implementation of PGUSE (A Composite Predictive-Generative Approach to
+Monaural Universal Speech Enhancement), and the code will be released soon.
