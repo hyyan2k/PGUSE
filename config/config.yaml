@@ -1,0 +1,69 @@
+# gpu config
+accelerator: gpu
+devices: [0]
+
+# log config
+log_dir: ./log
+resume: null  # if want to resume, specify ckpt path
+
+# inference config
+ckpt_path: null
+
+# dataset config
+dataset_config:
+  batch_size: 8
+  cut_len: 32000  # length of training samples: 2s
+  num_workers: 2  # dataloader workers
+  train_src_dir: <path-to-train-noisy>
+  train_tgt_dir: <path-to-train-clean>
+  val_src_dir: <path-to-valid-noisy>
+  val_tgt_dir: <path-to-valid-clean>
+  test_src_dir: <path-to-test-noisy>
+  test_tgt_dir: <path-to-test-clean>
+
+
+# training config
+max_epochs: 200
+val_check_interval: 1.0  # validate every epochs
+gradient_clip_val: 5.0
+opt:
+  lr: 1.0e-3
+sch:
+  step_size: 2
+  gamma: 0.97
+  verbose: true
+ema_config:
+  decay: 0.999
+
+
+# model config
+model_config:
+  num_channels: 64
+  temb_dim: 256
+  n_blocks: 3
+  n_heads: 4
+  dropout_p: 0.1
+  n_fft: 512
+  hop_length: 192
+
+
+# SDE config
+train_sde_config:
+  k: 2.6
+  c: 0.51
+  Trs: 0.999
+  T: 1.0
+  N: 25
+  t_eps: 0.01
+  n_steps: 0
+  snr: 0.5
+test_sde_config:
+  k: 2.6
+  c: 0.51
+  Trs: 0.12
+  T: 1.0
+  N: 3
+  t_eps: 0.01
+  n_steps: 0
+  snr: 0.5
+p_g_alpha: 0.4
