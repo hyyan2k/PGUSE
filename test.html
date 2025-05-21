@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paper Demo</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+
+        .container {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+
+        .title {
+            text-align: center;
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .links {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .links a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #3498db;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        .links a:hover {
+            color: #2980b9;
+        }
+
+        .authors {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.2em;
+            color: #34495e;
+        }
+
+        .institution {
+            text-align: center;
+            margin-bottom: 40px;
+            color: #7f8c8d;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+
+        .abstract-content {
+            padding: 20px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            font-size: 1.3em;
+        }
+
+        .figure-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            font-size: 1.3em;
+        }
+
+        .figure {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            margin-bottom: 5px; /* 图片和说明文字之间的间距 */
+        }
+
+        .audio-demos {
+            width: 100%;
+            overflow-x: auto;
+        }
+
+        .audio-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .audio-table th {
+            background-color: #f8f9fa;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 2px solid #e0e0e0;
+            color: #2c3e50;
+            font-weight: bold;
+        }
+
+        .audio-table td {
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .audio-name {
+            font-weight: bold;
+            color: #34495e;
+            text-align: left;
+            padding: 15px;
+        }
+
+        audio {
+            width: 250px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            .title {
+                font-size: 2em;
+            }
+
+            audio {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- 在此处替换论文标题 -->
+        <h1 class="title">A Composite Predictive-Generative Approach to <br>
+          Monaural Universal Speech Enhancement</h1>
+
+        <div class="links">
+            <!-- 在此处替换代码和论文链接 -->
+            <a href="https://github.com/hyyan2k/PGUSE" target="_blank">[Code]</a>
+            <!-- <a href="#" target="_blank">[Paper]</a> -->
+        </div>
+
+        <div class="authors">
+            <!-- 在此处替换作者名字 -->
+            <p> Jie Zhang<sup>1</sup>, Haoyin Yan<sup>1</sup>, Xiaofei Li<sup>2</sup> </p>
+        </div>
+
+        <div class="institution">
+            <!-- 在此处替换机构名称 -->
+            <p> <sup>1</sup>NERC-SLIP, University of Science and Technology of China (USTC) <br>
+              <sup>2</sup>School of Engineering, Westlake University
+            </p>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Abstract</h2>
+            <div class="abstract-content">
+                <!-- 在此处替换论文摘要 -->
+                <p>It is promising to design a single model that can suppress various distortions and improve speech quality, 
+                  i.e., universal speech enhancement (USE). Compared to supervised learning-based predictive methods, 
+                  diffusion-based generative models have shown greater potential due to the generative capacities from degraded speech with severely damaged information. 
+                  However, artifacts may be introduced in highly adverse conditions, 
+                  and diffusion models often suffer from a heavy computational burden due to many steps for inference. 
+                  In order to jointly leverage the superiority of prediction and generation and overcome the respective defects, 
+                  in this work we propose a universal speech enhancement model called PGUSE by combining predictive and generative modeling. 
+                  Our model consists of two branches: the predictive branch directly predicts clean samples from degraded signals, 
+                  while the generative branch optimizes the denoising objective of diffusion models. 
+                  We utilize the output fusion and truncated diffusion scheme to effectively integrate predictive and generative modeling, 
+                  where the former directly combines results from both branches and the latter modifies the reverse diffusion process with initial estimates from the predictive branch. 
+                  Extensive experiments on several datasets verify the superiority of the proposed model over state-of-the-art baselines, 
+                  demonstrating the complementarity and benefits of combining predictive and generative modeling.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Figures</h2>
+            <div class="figure-container">
+                <!-- 在此处添加论文图片，可以添加多个 -->
+                <!-- 示例：
+                <img class="figure" src="path_to_your_figure1.png" alt="Figure 1">
+                <img class="figure" src="path_to_your_figure2.png" alt="Figure 2">
+                -->
+                <img class="figure" src="./Figure/architecture2.png" alt="Figure 1" width="1000">
+                <p class="figure-caption">Fig. 1: The network architecture of PGUSE model. Please refer to the paper for more details. </p>
+                <!-- <font size="2" face="TimesNewRoman" color="#999"><u>Fig. 1</u></font> -->
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Audio Demos</h2>
+            <div class="audio-demos">
+                <table class="audio-table">
+                    <thead>
+                        <tr>
+                            <th>Sample Name</th>
+                            <th>Clean Audio</th>
+                            <th>Degraded Audio</th>
+                            <th>Enhanced Audio</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- 在此处添加音频示例，每行代表一组相关的音频 -->
+                        <tr>
+                            <td class="audio-name">440c0203</td>
+                            <td>
+                                <audio controls>
+                                    <source src="./AudioSamples/clean/440c0203.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls>
+                                    <source src="./AudioSamples/degraded/440c0203.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls>
+                                    <source src="./AudioSamples/enhanced/440c0203.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td class="audio-name">441o0314</td>
+                            <td>
+                                <audio controls>
+                                    <source src="./AudioSamples/clean/441o0314.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls>
+                                    <source src="./AudioSamples/degraded/441o0314.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                            <td>
+                                <audio controls>
+                                    <source src="./AudioSamples/enhanced/441o0314.wav" type="audio/wav">
+                                </audio>
+                            </td>
+                        </tr>
+
+                        <tr>
+                          <td class="audio-name">442c020w</td>
+                          <td>
+                              <audio controls>
+                                  <source src="./AudioSamples/clean/442c020w.wav" type="audio/wav">
+                              </audio>
+                          </td>
+                          <td>
+                              <audio controls>
+                                  <source src="./AudioSamples/degraded/442c020w.wav" type="audio/wav">
+                              </audio>
+                          </td>
+                          <td>
+                              <audio controls>
+                                  <source src="./AudioSamples/enhanced/442c020w.wav" type="audio/wav">
+                              </audio>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td class="audio-name">443o0313</td>
+                          <td>
+                              <audio controls>
+                                  <source src="./AudioSamples/clean/443o0313.wav" type="audio/wav">
+                              </audio>
+                          </td>
+                          <td>
+                              <audio controls>
+                                  <source src="./AudioSamples/degraded/443o0313.wav" type="audio/wav">
+                              </audio>
+                          </td>
+                          <td>
+                              <audio controls>
+                                  <source src="./AudioSamples/enhanced/443o0313.wav" type="audio/wav">
+                              </audio>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td class="audio-name">444c020g</td>
+                          <td>
+                              <audio controls>
+                                  <source src="./AudioSamples/clean/444c020g.wav" type="audio/wav">
+                              </audio>
+                          </td>
+                          <td>
+                              <audio controls>
+                                  <source src="./AudioSamples/degraded/444c020g.wav" type="audio/wav">
+                              </audio>
+                          </td>
+                          <td>
+                              <audio controls>
+                                  <source src="./AudioSamples/enhanced/444c020g.wav" type="audio/wav">
+                              </audio>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td class="audio-name">445c020n</td>
+                          <td>
+                              <audio controls>
+                                  <source src="./AudioSamples/clean/445c020n.wav" type="audio/wav">
+                              </audio>
+                          </td>
+                          <td>
+                              <audio controls>
+                                  <source src="./AudioSamples/degraded/445c020n.wav" type="audio/wav">
+                              </audio>
+                          </td>
+                          <td>
+                              <audio controls>
+                                  <source src="./AudioSamples/enhanced/445c020n.wav" type="audio/wav">
+                              </audio>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td class="audio-name">446c020o</td>
+                          <td>
+                              <audio controls>
+                                  <source src="./AudioSamples/clean/446c020o.wav" type="audio/wav">
+                              </audio>
+                          </td>
+                          <td>
+                              <audio controls>
+                                  <source src="./AudioSamples/degraded/446c020o.wav" type="audio/wav">
+                              </audio>
+                          </td>
+                          <td>
+                              <audio controls>
+                                  <source src="./AudioSamples/enhanced/446c020o.wav" type="audio/wav">
+                              </audio>
+                          </td>
+                        </tr>
+
+                        <tr>
+                          <td class="audio-name">447c0215</td>
+                          <td>
+                              <audio controls>
+                                  <source src="./AudioSamples/clean/447c0215.wav" type="audio/wav">
+                              </audio>
+                          </td>
+                          <td>
+                              <audio controls>
+                                  <source src="./AudioSamples/degraded/447c0215.wav" type="audio/wav">
+                              </audio>
+                          </td>
+                          <td>
+                              <audio controls>
+                                  <source src="./AudioSamples/enhanced/447c0215.wav" type="audio/wav">
+                              </audio>
+                          </td>
+                        </tr>
+
+                        <!-- 可以复制上面的tr标签来添加更多音频示例 -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
