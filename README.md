@@ -1,6 +1,6 @@
 # PGUSE: A Composite Predictive-Generative Approach to Monaural Universal Speech Enhancement
 
-This is the official implementation of PGUSE model.
+This is the official implementation of [PGUSE](https://arxiv.org/abs/2505.24576v1) model.
 
 
 
